@@ -456,4 +456,3 @@ if __name__ == "__main__":
             }
             requests.post(discord_webhook_url, json=payload)
 
-    print(json.dumps(class_data, indent=4))
