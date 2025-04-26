@@ -40,6 +40,6 @@ To use this automation:
         3.  Close Settings. Right-click on your username in the user list or a chat message.
         4.  Click `Copy User ID`.
 
-3.  **Enable the Workflow:** Go to the `Actions` tab in your forked repository. Find the "Check CUNY Classes" workflow and make sure it's enabled. You might need to trigger it manually once to get it started.
+3.  **Enable the Workflow:** Go to the `Actions` tab in your forked repository. Find the "Check CUNY Classes" workflow and make sure it's enabled. If it hasn't run before or you want to test it immediately, you might need to trigger it manually: click the `Run workflow` dropdown on the right, then click the green `Run workflow` button.
 
 Once set up and enabled, the workflow will run automatically every 10 minutes to check for your desired classes.
