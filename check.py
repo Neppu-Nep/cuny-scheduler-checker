@@ -455,5 +455,3 @@ if __name__ == "__main__":
                 "embeds": [embed]
             }
             requests.post(discord_webhook_url, json=payload)
-
-    print(json.dumps(class_data, indent=4))
