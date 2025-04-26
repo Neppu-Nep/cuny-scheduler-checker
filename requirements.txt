@@ -1,0 +1,5 @@
+backoff
+beautifulsoup4
+requests
+urllib3
+python-dotenv 
