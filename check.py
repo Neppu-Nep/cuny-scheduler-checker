@@ -395,7 +395,7 @@ if __name__ == "__main__":
         logging.error("Error: 'USERNAME' or 'PASSWORD' or 'DISCORD_WEBHOOK_URL' not found in the .env file or environment variables.")
         exit(1)
 
-    cuny_client = CUNY(username, password)
+    cuny_client = CUNY(username.lower(), password)
     cuny_client.login()
 
     if not cuny_client.class_data_cookies:
@@ -451,7 +451,7 @@ if __name__ == "__main__":
                 ]
             }
             payload = {
-                "content": f"<@{os.getenv('DISCORD_USER_ID')}> Class **{course_info['Course Number']} ({course_code})** might be open!",
+                "content": f"<@{os.getenv('DISCORD_USER_ID', '')}> Class **{course_info['Course Number']} ({course_code})** might be open!",
                 "embeds": [embed]
             }
             requests.post(discord_webhook_url, json=payload)
