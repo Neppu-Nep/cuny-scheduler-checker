@@ -66,7 +66,7 @@ class CUNY:
     def _step_two(self):
         """Follows the first redirect, likely to the SSO login page."""
         logging.debug("Executing Step 2: Follow first redirect...")
-        response = requests.get(self.next_url, verify=False, allow_redirects=False, cookies=self.cookies, headers=self.headers)
+        response = requests.get(self.next_url, allow_redirects=False, cookies=self.cookies, headers=self.headers)
         response.raise_for_status()
         self.cookies.update(response.cookies.get_dict())
         self.next_url = "https://ssologin.cuny.edu/oam/server/auth_cred_submit"
@@ -78,7 +78,7 @@ class CUNY:
             "username": self.username,
             "password": self.password,
         }
-        response = requests.post(self.next_url, verify=False, data=form_data, allow_redirects=False, cookies=self.cookies, headers=self.headers)
+        response = requests.post(self.next_url, data=form_data, allow_redirects=False, cookies=self.cookies, headers=self.headers)
         response.raise_for_status()
         self.cookies.update(response.cookies.get_dict())
         self.next_url = response.headers['Location']
@@ -456,3 +456,4 @@ if __name__ == "__main__":
             }
             requests.post(discord_webhook_url, json=payload)
 
+    print(json.dumps(class_data, indent=4))
