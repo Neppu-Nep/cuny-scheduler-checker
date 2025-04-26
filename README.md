@@ -43,3 +43,5 @@ To use this automation:
 3.  **Enable the Workflow:** Go to the `Actions` tab in your forked repository. Find the "Check CUNY Classes" workflow and make sure it's enabled. If it hasn't run before or you want to test it immediately, you might need to trigger it manually: click the `Run workflow` dropdown on the right, then click the green `Run workflow` button.
 
 Once set up and enabled, the workflow will run automatically every 10 minutes to check for your desired classes.
+
+> **Note:** While the workflow is scheduled to run every 10 minutes, GitHub Actions scheduling can sometimes vary. The actual interval between runs might occasionally be longer depending on GitHub's infrastructure load.
