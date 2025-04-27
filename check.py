@@ -66,6 +66,10 @@ class CUNY:
     def _step_two(self):
         """Follows the first redirect, likely to the SSO login page."""
         logging.debug("Executing Step 2: Follow first redirect...")
+        if self.next_url == "http://portaldown.cuny.edu/cunyfirst":
+            logging.error("CUNY is down, exiting...")
+            exit(0)
+
         response = requests.get(self.next_url, allow_redirects=False, cookies=self.cookies, headers=self.headers)
         response.raise_for_status()
         self.cookies.update(response.cookies.get_dict())
