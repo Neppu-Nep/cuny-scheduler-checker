@@ -1,14 +1,15 @@
-# cuny-scheduler-checker
+# cuny-schedule-checker
 
 ## Overview
 
-This repository provides a tool to automatically monitor CUNYfirst for open seats in specified class sections using GitHub Actions. When an open seat is detected in a course you're tracking, it sends a notification to a configured Discord webhook.
+This repository provides a tool to automatically monitor CUNYfirst for open seats in specified class sections using GitHub Actions. When an open seat is detected in a course you're tracking, it sends a notification to a configured Discord webhook. It also attempts to auto-enroll you in the class if a seat is available (this feature is experimental and may not work as expected).
 
 ## Features
 
 *   Periodically checks CUNYfirst for class availability via GitHub Actions.
 *   Monitors user-specified courses defined in GitHub secrets.
 *   Sends Discord notifications when a tracked class section opens.
+*   Try and auto enroll in the class if a seat is available. (Experimental)
 *   Includes a GitHub Actions workflow for automated, scheduled checks every 10 minutes.
 
 ## Automating with GitHub Actions
@@ -45,3 +46,18 @@ To use this automation:
 Once set up and enabled, the workflow will run automatically every 10 minutes to check for your desired classes.
 
 > **Note:** While the workflow is scheduled to run every 10 minutes, GitHub Actions scheduling can sometimes vary. The actual interval between runs might occasionally be longer depending on GitHub's infrastructure load.
+
+## Running Locally
+
+If you want to run the script locally for testing or development purposes, you can do so by following these steps:
+1. Install python and pip if you haven't already.
+2. Clone this repository to your local machine.
+3. Install the required dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+4. Copy the `.env.example` file to `.env` and fill in your CUNYfirst credentials, Discord webhook URL, and course information.
+5. Run the script:
+   ```bash
+   python check.py
+   ```
