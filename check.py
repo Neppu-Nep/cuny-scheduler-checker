@@ -78,7 +78,9 @@ class CUNY:
     
     def _check_session_text(self, text: str) -> None:
         if "Oops, you must log into this application before loading that link." in text:
-            raise CUNYException("Session expired. Please log in again.")
+            # raise CUNYException("Session expired. Please log in again.")
+            logging.error("Session expired. Please log in again.")
+            exit(0)
 
     def _nWindow(self):
         """Generates time-based parameters required for the class data API request."""
