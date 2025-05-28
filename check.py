@@ -295,6 +295,10 @@ class CUNY:
         }
         parameters.update(self._nWindow())
         course_college_map = self._get_colleges(term, course_names)
+        
+        if not course_college_map:
+            logging.warning("No valid courses found for the specified term.")
+            return []
 
         for index, course in enumerate(course_names):
             if course not in course_college_map:
